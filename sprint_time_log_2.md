@@ -30,6 +30,13 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   10/9   |     2pm  |    TP  | Planned for this sprint                                |     60      |
 |   10/11  |     2pm  |    MTG | "standup meeting", evaluated individual project        |     60      |
 |   10/11  |     7pm  |    TP  | Setup the overall app layout, practiced react native   |     60      |
+|   10/14  |     2pm  |    TP  | Discussed future project plans and regrouped           |     60      |
+|   10/14  |     3pm  |    IM  | Watched the tutorial and coded along                   |     80      |
+|   10/15  |     3pm  |    IM  | Figured out .env file and how to get it to work on git |     70      |
+|   10/15  |     5pm  |    IM  |Continue figuring out .env and ensuring enviroment works|     70      |
+
+
+
 
 _Note: Add more rows as needed._
 

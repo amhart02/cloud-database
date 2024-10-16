@@ -6,6 +6,10 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
+
+
+########
+
 # result = db.collection("products").get()
 # total = 0
 # for record in result:
