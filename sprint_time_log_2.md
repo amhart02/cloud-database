@@ -34,7 +34,8 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   10/14  |     3pm  |    IM  | Watched the tutorial and coded along                   |     80      |
 |   10/15  |     3pm  |    IM  | Figured out .env file and how to get it to work on git |     70      |
 |   10/15  |     5pm  |    IM  |Continue figuring out .env and ensuring enviroment works|     70      |
-
+|   10/16  |     2pm  |    MTG | Did group presentations in class                       |     60      |
+|   10/16  |     3pm  |    IM  | Set up the loop for the user to go into                |     120     |
 
 
 
