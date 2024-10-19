@@ -5,7 +5,6 @@ cred = credentials.Certificate("e-commerce.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-# collection is the table, document is something in that table, field is an attribute of that something 
 
 #final a total price !!! USE THIS
 # result = db.collection("products").get()
@@ -14,58 +13,6 @@ db = firestore.client()
 #     data = record.to_dict()
 #     total += data["price"]
 # print(total)
-
-# #how to print stuff
-# for record in result:
-#     data = record.to_dict()
-#     print(record.id)
-#     print(f"{record.id} : {data["name"]}")
-
-# #get user input
-# choice = input("Select a product: ")
-# new_price = int(input("What is the new product price? "))
-# #setting a new product into the database
-# result = db.collection("products").document(choice).set({"name" : choice, "price" : new_price})
-# #getting the data from the database
-# result = db.collection("products").document(choice).get()
-# #measures to ensure data comes through
-# data = result.to_dict()
-# if data is None: 
-#     print("Invalid Product")
-# else:
-#     print(data["price"])
-
-# db.collection("products").document("2").set({"name" : "grapes", "description" : "purple yummy", "price" : 3.99})
-
-# #to delete a varible from the database table
-# db.collection("products").document("2").delete()
-
-# #user input and adding a new phonenumber 
-# new_number = input("What is the new phone number: ")
-# db.collection("users").add({"phone number" : new_number})
-
-#get all the users in the users table
-# results = db.collection("users").get()
-# #use conditioning when getting a user 
-# results = db.collection("users").where("phone number", "==", 90).where("phone number", ">=", 80).get()
-# #printing out all the user ids and phone numbers 
-# for result in results:
-#     data = result.to_dict()
-#     print(f"id = {result.id} phone number = {data["phone number"]}")
-
-#more examples of what we've been doing
-# name = input("Which name? ")
-# phoneNumber = input("Which phone number? ")
-# new_number = input("New number: ")
-
-# results = db.collection("grades").where("name", "==", name).where("phone number", "==", phoneNumber).get()
-# if len(results) == 1:
-#     id = result[0].id
-#     db.collection("users").document(id).set({"name": name, "phone number" : new_number})
-# else: 
-#     print("Can't find the record")
-
-#### START OF ACTUAL PROJECT ####
 
 user_choice = 1 
 
@@ -94,6 +41,7 @@ while user_choice != 6:
 
     #add product to cart and quantity
     elif user_choice == 2:
+        #display the products
         products = db.collection("products").get()
         list_number = 0
         product_ids = []
@@ -102,13 +50,14 @@ while user_choice != 6:
             list_number += 1
             print(f'{list_number}- {data["name"]} : ${data["price"]:.2f}')
             product_ids.append(product.id)
+        #ask for user input
         print()
         product_to_add = int(input("Please enter the list number of the product you would like to add: "))
         quantity_to_add = int(input("Please enter the quantity of the product to add to your cart: "))
         print()
         print("Item added to cart!")
         print()
-        
+        # add selected product to the cart 
         selected_product_id = product_ids[product_to_add - 1]
         selected_product = db.collection("products").document(selected_product_id).get()
         data = selected_product.to_dict()
@@ -116,13 +65,78 @@ while user_choice != 6:
 
     #remove product from cart
     elif user_choice == 3:
+        cart_products = db.collection("cart").get()
+        list_number = 0
+        total_price = 0
+        product_ids = []
+        if not cart_products:
+            print("The cart is empty!")
+        else:
+            for product in cart_products:
+                data = product.to_dict()
+                list_number += 1
+                total_price += (data["price"] * data["quantity"])
+                print(f"{list_number}- {data["name"]} : ${data["price"]}")
+                print(f"Quantity : {data["quantity"]}")
+                product_ids.append(product.id)
         print()
+        print(f"Total: ${total_price:.2f}")
+        print()
+        product_to_remove = int(input("Please enter the list number of the product you would like to remove: "))
+        print()
+        print("Item removed from cart!")
+        print()
+
+        selected_product_id = product_ids[product_to_remove - 1]
+        selected_product = db.collection("cart").document(selected_product_id).delete()
+
     #update quantity of item in cart
     elif user_choice == 4:
+        cart_products = db.collection("cart").get()
+        list_number = 0
+        total_price = 0
+        product_ids = []
+        if not cart_products:
+            print("The cart is empty!")
+        else:
+            for product in cart_products:
+                data = product.to_dict()
+                list_number += 1
+                total_price += (data["price"] * data["quantity"])
+                print(f"{list_number}- {data["name"]} : ${data["price"]}")
+                print(f"Quantity : {data["quantity"]}")
+                product_ids.append(product.id)
         print()
+        print(f"Total: ${total_price}")
+        print()
+
+        product_to_quantify = int(input("Please enter the list number in which you want to change the quantity: "))
+        new_quantity = int(input("Please enter the new quantity: "))
+        print()
+        print("Cart item updated!")
+        print()
+
+        selected_product_id = product_ids[product_to_quantify - 1]
+        selected_product = db.collection("cart").document(selected_product_id).update({"quantity" : new_quantity})
+
     #display what is in the cart
     elif user_choice == 5:
+        cart_products = db.collection("cart").get()
+        list_number = 0
+        total_price = 0
+        if not cart_products:
+            print("The cart is empty!")
+        else:
+            for product in cart_products:
+                data = product.to_dict()
+                list_number += 1
+                total_price += (data["price"] * data["quantity"])
+                print(f"{list_number}- {data["name"]} : ${data["price"]}")
+                print(f"Quantity : {data["quantity"]}")
         print()
+        print(f"Total: ${total_price}")
+        print()
+
     #user quits
     elif user_choice == 6: 
         break

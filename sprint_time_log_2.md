@@ -36,7 +36,8 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   10/15  |     5pm  |    IM  |Continue figuring out .env and ensuring enviroment works|     70      |
 |   10/16  |     2pm  |    MTG | Did group presentations in class                       |     60      |
 |   10/16  |     3pm  |    IM  | Set up the loop for the user to go into                |     120     |
-
+|   10/19  |  12:40am |    TP  | Worked on setting up the login page for the app        |     60      |
+|   10/19  |  12:30pm |    IM  | Worked more on adding and removing items from cart     |    90       |
 
 
 _Note: Add more rows as needed._
@@ -45,7 +46,7 @@ _Note: Add more rows as needed._
 
 |Category                       |Total Time (Hours:Minutes)| 
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
-|TP - Team Project              |                          |
-|MTG - Class Meetings           |                          |  
+|IM - Individual Module         |                          |   5.67
+|TP - Team Project              |       4:00               |
+|MTG - Class Meetings           |       3:00               |  
 |**TOTAL**                      |                          |
