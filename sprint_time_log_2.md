@@ -39,7 +39,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |   10/19  |  12:40am |    TP  | Worked on setting up the login page for the app        |     60      |
 |   10/19  |  12:30pm |    IM  | Worked more on adding and removing items from cart     |     90      |
 |   10/19  |    3pm   |    IM  | Finishing touches and addded "extra credit" element    |     90      |
-
+|   10/19  |    9pm   |    IM  | Read me page and demonstration video                   |     80      |
 
 
 _Note: Add more rows as needed._
@@ -48,7 +48,7 @@ _Note: Add more rows as needed._
 
 |Category                       |Total Time (Hours:Minutes)| 
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |   520 min
+|IM - Individual Module         |       10:00              |   
 |TP - Team Project              |       4:00               |
 |MTG - Class Meetings           |       3:00               |  
-|**TOTAL**                      |                          |
+|**TOTAL**                      |       17:00              |
